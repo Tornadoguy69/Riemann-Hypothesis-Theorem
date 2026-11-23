@@ -32,14 +32,14 @@ $$w\left(\frac{n}{x}\right) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} 
 Substituting this into $G_w(x)$ and interchanging summation and integration (justified by absolute convergence for $c > 1$):
 $$G_w(x) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \left( \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} \right) \widetilde{w}(s) x^s \, ds = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \left( -\frac{\zeta'}{\zeta}(s) \right) \widetilde{w}(s) x^s \, ds$$
 
-We shift the contour of integration from $\operatorname{Re}(s) = c > 1$ to $\operatorname{Re}(s) = -1/2$. By Cauchy's Residue Theorem, the integral picks up contributions from the poles of $-\frac{\zeta'}{\zeta}(s) \widetilde{w}(s) x^s$:
+We shift the contour of integration from $\mathrm{Re}(s) = c > 1$ to $\mathrm{Re}(s) = -1/2$. By Cauchy's Residue Theorem, the integral picks up contributions from the poles of $-\frac{\zeta'}{\zeta}(s) \widetilde{w}(s) x^s$:
 1. **Pole at $s = 1$**: $-\frac{\zeta'}{\zeta}(s)$ has a simple pole with residue $+1$.  
-   $$\operatorname{Res}_{s=1} = 1 \cdot \widetilde{w}(1) x^1 = x$$
+   $$\mathrm{Res}_{s=1} = 1 \cdot \widetilde{w}(1) x^1 = x$$
 2. **Non-trivial zeros $\rho = \beta + i\gamma$** with $0 < \beta < 1$: Each zero of multiplicity $m_\rho$ contributes:
-   $$\operatorname{Res}_{s=\rho} = - m_\rho \widetilde{w}(\rho) x^\rho$$
+   $$\mathrm{Res}_{s=\rho} = - m_\rho \widetilde{w}(\rho) x^\rho$$
 3. **Trivial zeros at $s = -2k$ ($k \in \mathbb{N}$)** and pole at $s = 0$:  
    The residues yield an absolutely convergent background term $\mathcal{O}(x^{-1})$.
-4. **Remainder contour at $\operatorname{Re}(s) = -1/2$**: Due to the super-polynomial decay of $\widetilde{w}(-1/2 + it)$, this integral is uniformly bounded by $\mathcal{O}(x^{-1/2})$.
+4. **Remainder contour at $\mathrm{Re}(s) = -1/2$**: Due to the super-polynomial decay of $\widetilde{w}(-1/2 + it)$, this integral is uniformly bounded by $\mathcal{O}(x^{-1/2})$.
 
 Hence, we obtain the exact smoothed explicit formula:
 $$G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^\rho + \mathcal{O}(x^{-1/2})$$
@@ -52,10 +52,10 @@ Suppose the Riemann Hypothesis fails. Then there exists a non-trivial zero off t
 $$\rho_0 = \frac{1}{2} + \delta + i \gamma_0, \quad \text{with } \delta > 0, \quad \gamma_0 \neq 0$$
 *(Note: $\gamma_0 \neq 0$ because $\zeta(\sigma) < 0$ on $(0, 1)$ by Euler–Maclaurin summation).*
 
-By the Schwarz reflection principle $\zeta(\overline{s}) = \overline{\zeta(s)}$, $\overline{\rho_0} = 1/2 + \delta - i\gamma_0$ is also a zero. Without loss of generality, choose $\rho_0$ to maximize $\operatorname{Re}(\rho) = 1/2 + \delta$.
+By the Schwarz reflection principle $\zeta(\overline{s}) = \overline{\zeta(s)}$, $\overline{\rho_0} = 1/2 + \delta - i\gamma_0$ is also a zero. Without loss of generality, choose $\rho_0$ to maximize $\mathrm{Re}(\rho) = 1/2 + \delta$.
 
 The combined contribution of the conjugate pair $\{\rho_0, \overline{\rho_0}\}$ to the explicit sum is:
-$$- \left( \widetilde{w}(\rho_0) x^{1/2 + \delta + i\gamma_0} + \overline{\widetilde{w}(\rho_0)} x^{1/2 + \delta - i\gamma_0} \right) = - 2 x^{1/2 + \delta} \operatorname{Re}\left( \widetilde{w}(\rho_0) e^{i \gamma_0 \log x} \right)$$
+$$- \left( \widetilde{w}(\rho_0) x^{1/2 + \delta + i\gamma_0} + \overline{\widetilde{w}(\rho_0)} x^{1/2 + \delta - i\gamma_0} \right) = - 2 x^{1/2 + \delta} \mathrm{Re}\left( \widetilde{w}(\rho_0) e^{i \gamma_0 \log x} \right)$$
 
 Write $\widetilde{w}(\rho_0) = r_0 e^{i \theta_0}$ in polar form, where $r_0 = |\widetilde{w}(\rho_0)| > 0$. Then this dominant oscillatory term is:
 $$T_{\rho_0}(x) = - 2 r_0 x^{1/2 + \delta} \cos\left( \gamma_0 \log x + \theta_0 \right)$$
@@ -72,7 +72,7 @@ $$\Delta \Phi > 2\pi$$
 Because the phase rotates by more than a full circle ($> 2\pi$), the intermediate value theorem guarantees that the cosine achieves its extremal value $-1$ at some point $x^* \in [Y, Y^{3/2}]$, where:
 $$\cos\left(\gamma_0 \log x^* + \theta_0\right) = -1 \implies T_{\rho_0}(x^*) = + 2 r_0 (x^*)^{1/2 + \delta}$$
 
-Even accounting for any remaining zeros with $\operatorname{Re}(\rho) \le 1/2 + \delta$, their super-polynomially decaying weights $\widetilde{w}(\rho)$ ensure that destructive interference cannot cancel the leading zero over the entire logarithmic window. By standard Turán power sum theory (or Landau's oscillation lemma), for sufficiently large $Y$:
+Even accounting for any remaining zeros with $\mathrm{Re}(\rho) \le 1/2 + \delta$, their super-polynomially decaying weights $\widetilde{w}(\rho)$ ensure that destructive interference cannot cancel the leading zero over the entire logarithmic window. By standard Turán power sum theory (or Landau's oscillation lemma), for sufficiently large $Y$:
 $$\sup_{x \in [Y, Y^{3/2}]} |G_w(x) - x| \ge c_0 (x^*)^{1/2 + \delta}$$
 where $c_0 := r_0 / 2 = \frac{1}{2}|\widetilde{w}(\rho_0)| > 0$ is a fixed positive constant depending only on $\rho_0$ and $w$.
 
@@ -87,8 +87,8 @@ We now confront this oscillation against the Main Inequality $(M)$ bound:
 4. **Interval Geodesic Bound**: Since $x^* \ge Y$, we have $Y^{\delta - \varepsilon} \le (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}$.
 5. **Asymptotic Collapse as $Y \to \infty$**: Fix $\varepsilon = \frac{\delta}{2} > 0$; taking $Y \to \infty$ yields $\lim_{Y \to \infty} Y^{\delta / 2} = \infty \le \frac{C_{\delta/2}}{c_0} < \infty$, an immediate contradiction! $\blacksquare$
 
-**Conclusion:** No zero can exist with $\operatorname{Re}(\rho) > 1/2$. Combined with the Riemann functional equation $\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1-s) \zeta(1-s)$, every non-trivial zero must satisfy:
-$$\operatorname{Re}(s) = \frac{1}{2}$$
+**Conclusion:** No zero can exist with $\mathrm{Re}(\rho) > 1/2$. Combined with the Riemann functional equation $\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1-s) \zeta(1-s)$, every non-trivial zero must satisfy:
+$$\mathrm{Re}(s) = \frac{1}{2}$$
 
 ---
 
@@ -236,17 +236,17 @@ flowchart LR
 ```
 
 1. **The Arithmetic Analogy (Stepanov over $\mathbb{Z}$)**:
-   - *Why did previous attempts fail?* In $\mathbb{F}_q(C)$, one constructs an auxiliary polynomial vanishing to order $M \approx \sqrt{q}$. Over $\mathbb{Z}$, derivatives do not exist ($\operatorname{Der}(\mathbb{Z},\mathbb{Z}) = 0$), and polynomial vanishing creates an Archimedean height explosion $e^{MX}$.
+   - *Why did previous attempts fail?* In $\mathbb{F}_q(C)$, one constructs an auxiliary polynomial vanishing to order $M \approx \sqrt{q}$. Over $\mathbb{Z}$, derivatives do not exist ($\mathrm{Der}(\mathbb{Z},\mathbb{Z}) = 0$), and polynomial vanishing creates an Archimedean height explosion $e^{MX}$.
    - *The Alpöge–Claude Solution*: Vanishing is replaced by **depth in the theta ladder** $\pi_0 \to \pi_1 \to \dots \to \pi_L$ on compact unitary groups $U(k)$. Vanishing of lower theta projections $\theta^*(\phi_L) = 0$ provides the exact representation-theoretic equivalent of order-$L$ root multiplicity!
 2. **Spectral Norm Conservation (Gan–Qiu–Takeda)**:
    - Because $U(k)(\mathbb{R})$ is compact, the automorphic spectrum is discrete. Inner products evaluate via GQT to central $L$-values $\prod L(j, \chi_E^j) L(1/2, \pi \times \chi_W)$ and finite lattice sums:
-     $$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\operatorname{Aut}(\mathcal{L}_i)}$$
+     $$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\mathrm{Aut}(\mathcal{L}_i)}$$
    - This completely eliminates Archimedean height divergence.
 3. **Local Divisibility & Glued Lattice Sieve**:
    - At inert primes, the Hecke action vanishes modulo powers of $p$: $\lambda(p) \equiv 0 \pmod{p^{\lfloor L/2 \rfloor}}$.
    - Glued lattices eliminate off-diagonal terms in the trace formula, isolating the diagonal prime sum.
 4. **Classical Contour Shift & Landau/Turán Oscillation**:
-   - Once $(M)$ is obtained, deducing $\operatorname{Re}(s) = 1/2$ is standard 2nd-year analytic number theory: shifting the Mellin contour, picking up $\rho_0$, and using the pigeonhole/phase-sweep on $[Y, Y^{3/2}]$ to derive $Y^{\delta/2} \le C$.
+   - Once $(M)$ is obtained, deducing $\mathrm{Re}(s) = 1/2$ is standard 2nd-year analytic number theory: shifting the Mellin contour, picking up $\rho_0$, and using the pigeonhole/phase-sweep on $[Y, Y^{3/2}]$ to derive $Y^{\delta/2} \le C$.
 
 ### 3.3 A 3-Lecture Course Syllabus for Graduate Students
 Any university department can teach this proof in a 3-lecture seminar:

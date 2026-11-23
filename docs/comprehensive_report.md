@@ -10,17 +10,17 @@
 
 ## 1. Architectural Overview & Breakthrough Synopsis
 
-The Riemann Hypothesis (RH) asserts that all non-trivial zeros of the Riemann zeta function $\zeta(s)$ lie strictly on the critical line $\operatorname{Re}(s) = \frac{1}{2}$. For over a century, resolving RH over the rational numbers $\mathbb{Q}$ and integers $\mathbb{Z}$ was blocked by a fundamental disparity: while the analogue of RH was proven for function fields over finite fields $\mathbb{F}_q(C)$ by André Weil (1948) and elementary methods by Sergei Stepanov (1969) and Enrico Bombieri (1974), all attempts to transpose these ideas to $\mathbb{Z}$ stalled.
+The Riemann Hypothesis (RH) asserts that all non-trivial zeros of the Riemann zeta function $\zeta(s)$ lie strictly on the critical line $\mathrm{Re}(s) = \frac{1}{2}$. For over a century, resolving RH over the rational numbers $\mathbb{Q}$ and integers $\mathbb{Z}$ was blocked by a fundamental disparity: while the analogue of RH was proven for function fields over finite fields $\mathbb{F}_q(C)$ by André Weil (1948) and elementary methods by Sergei Stepanov (1969) and Enrico Bombieri (1974), all attempts to transpose these ideas to $\mathbb{Z}$ stalled.
 
-In function fields, the proof hinges on **algebraic multiplicity**: constructing an auxiliary polynomial that vanishes at rational points to order $M$, where $M$ is bounded by derivatives. Over the integers, **no global derivations exist** ($\operatorname{Der}(\mathbb{Z}, \mathbb{Z}) = 0$), and trying to force high multiplicity at primes causes an Archimedean explosion of heights ($e^{MX}$).
+In function fields, the proof hinges on **algebraic multiplicity**: constructing an auxiliary polynomial that vanishes at rational points to order $M$, where $M$ is bounded by derivatives. Over the integers, **no global derivations exist** ($\mathrm{Der}(\mathbb{Z}, \mathbb{Z}) = 0$), and trying to force high multiplicity at primes causes an Archimedean explosion of heights ($e^{MX}$).
 
 ### The Anthropic Breakthrough
 Mathematician **Levent Alpöge**, collaborating with Anthropic's **Claude** over several months, surmounted this 50-year barrier by introducing an **automorphic substitute for multiplicity**:
 1. **The Theta Ladder**: Replacing algebraic derivatives with a chain of automorphic **theta lifts** across totally definite compact unitary groups $U(k)$.
-2. **Claude's Scaling Law**: Selecting the theta chain length $L \approx \sqrt{X}$ for a von Mangoldt prime sum of length $X$, balancing the automorphic conductor $\operatorname{cond}(\pi_L) \asymp L^2$ against the interval length.
+2. **Claude's Scaling Law**: Selecting the theta chain length $L \approx \sqrt{X}$ for a von Mangoldt prime sum of length $X$, balancing the automorphic conductor $\mathrm{cond}(\pi_L) \asymp L^2$ against the interval length.
 3. **Norm Control via Gan–Qiu–Takeda**: Evaluating Petersson norms of the chained lifts via the Gan–Qiu–Takeda (GQT) regularized Siegel–Weil formula, expressing them in terms of central $L$-values and Hermitian lattice genera, preventing Archimedean blowup.
 4. **Local Divisibility & Glued Lattices**: Establishing that at inert primes $p$, Hecke eigenvalues satisfy $\lambda(p) \equiv 0 \pmod{p^{\lfloor L/2 \rfloor}}$. Glued lattices eliminate off-diagonal interference in the trace formula.
-5. **The Main Inequality (M)**: Yields a uniform one-sided bound on prime-power sums in $[Y, Y^{3/2}]$, which strictly contradicts the oscillatory resonance of any hypothetical zero off the critical line ($\operatorname{Re}(s) > 1/2$).
+5. **The Main Inequality (M)**: Yields a uniform one-sided bound on prime-power sums in $[Y, Y^{3/2}]$, which strictly contradicts the oscillatory resonance of any hypothetical zero off the critical line ($\mathrm{Re}(s) > 1/2$).
 
 ```mermaid
 flowchart TD
@@ -89,7 +89,7 @@ This depth in the theta tower acts as the **exact arithmetic counterpart of vani
 
 ### 2.3 Claude's Tuning: $L \approx \sqrt{X}$
 On $U(k)$, the Weyl dimension formula dictates that the analytic conductor scales quadratically with rank:
-$$\operatorname{cond}(\pi_k) \asymp k^2 \implies \operatorname{cond}(\pi_L) \asymp L^2$$
+$$\mathrm{cond}(\pi_k) \asymp k^2 \implies \mathrm{cond}(\pi_L) \asymp L^2$$
 To balance the automorphic degrees of freedom against the length $X$ of the prime sum:
 $$L^2 \approx X \implies L \approx \sqrt{X}$$
 This choice achieves maximal sieve cancellation:
@@ -99,7 +99,7 @@ $$\text{Error} \ll \frac{X}{L} \approx \frac{X}{\sqrt{X}} = \sqrt{X}$$
 The $L^2$-Petersson norm of the theta lift is determined by the Gan–Qiu–Takeda theorem:
 $$\|\theta(\phi)\|^2 = \tau(U(V)) \cdot \left[ \prod_{j=1}^{\dim W - \dim V} L\left(j, \chi_E^j\right) \right] \cdot L\left(\frac{1}{2}, \pi \times \chi_W\right) \cdot \prod_{v} I_v(\phi_v)$$
 Because $U(V)(\mathbb{R})$ is compact, the automorphic space is discrete, reducing the inner product to a weighted sum over the finite class genus of positive-definite Hermitian $\mathcal{O}_E$-lattices:
-$$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\operatorname{Aut}(\mathcal{L}_i)}$$
+$$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\mathrm{Aut}(\mathcal{L}_i)}$$
 This completely bypasses the Archimedean height explosion.
 
 ### 2.5 The Main Inequality (M) & Contradiction
@@ -114,7 +114,7 @@ If an off-axis zero $\rho_0 = 1/2 + \delta + i\gamma_0$ existed:
    $$\frac{1}{2} c_0 (x^*)^{1/2 + \delta} \le C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies Y^{\delta - \varepsilon} \le \frac{2 C_\varepsilon}{c_0}$$
 4. Setting $\varepsilon = \delta / 2$ and letting $Y \to \infty$, the left side grows without bound while the right side is constant — an **absolute mathematical contradiction**.
 
-Therefore, no zero can exist with $\operatorname{Re}(s) > 1/2$. By the functional equation $s \leftrightarrow 1-s$, all non-trivial zeros lie on $\operatorname{Re}(s) = 1/2$.
+Therefore, no zero can exist with $\mathrm{Re}(s) > 1/2$. By the functional equation $s \leftrightarrow 1-s$, all non-trivial zeros lie on $\mathrm{Re}(s) = 1/2$.
 
 ---
 

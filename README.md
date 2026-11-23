@@ -41,27 +41,55 @@ This repository provides that exact **human-readable distillation**.
 
 ## 🧩 The 3 Core Definitions
 
-Fix an imaginary quadratic field $K = \mathbb{Q}(\sqrt{-D})$ (e.g., $D = 163$) with ring of integers $\mathcal{O}_K$. Let $\mathcal{P}_{\text{inert}} = \{ p \text{ prime} : (\frac{-D}{p}) = -1 \}$ be the set of primes inert in $K$.
+Fix an imaginary quadratic field $K = \mathbb{Q}(\sqrt{-D})$ (such as $D = 163$) with ring of integers $\mathcal{O}_K$. 
+
+We define the set of primes inert in $K$:
+
+$$
+\mathcal{P}_{\mathrm{inert}} = \left\{ p \text{ prime} : \left(\frac{-D}{p}\right) = -1 \right\}
+$$
 
 ### Definition 1: The Unitary Theta Operator ($\Theta_i$)
-On $\mathcal{H} = L^2(\mathbb{R}_+^\times, \frac{dx}{x})$, define the integral operator:
-$$(\Theta_i f)(x) := \frac{1}{\sqrt{2\pi}} \int_0^\infty \vartheta(x y; i) f(y) \, \frac{dy}{y}$$
+
+On the Hilbert space $\mathcal{H} = L^2(\mathbb{R}_+^\times, \frac{dx}{x})$, define the integral operator:
+
+$$
+(\Theta_i f)(x) := \frac{1}{\sqrt{2\pi}} \int_0^\infty \vartheta(x y; i) f(y) \, \frac{dy}{y}
+$$
+
 where $\vartheta(u; i) = \sum_{n \in \mathbb{Z}} e^{-\pi n^2 u^2} - \frac{1}{u}$ is Jacobi's completed theta kernel.
 
 * **Significance:** Under the Mellin transform, $\Theta_i$ diagonalizes into the completed zeta functional equation quotient:
-  $$\mathcal{M}[\Theta_i f](s) = \frac{\xi(1-s)}{\xi(s)} \mathcal{M}[f](s) = \mathcal{M}[f](1-s)$$
-  Unitarity $\|\Theta_i f\| = \|f\|$ corresponds directly to isometry along the critical line $\operatorname{Re}(s) = 1/2$.
+
+$$
+\mathcal{M}\left[\Theta_i f\right](s) = \frac{\xi(1-s)}{\xi(s)} \mathcal{M}\left[f\right](s) = \mathcal{M}\left[f\right](1-s)
+$$
+
+Unitarity $\|\Theta_i f\| = \|f\|$ corresponds directly to isometry along the critical line $\mathrm{Re}(s) = 1/2$.
 
 ### Definition 2: Inert Prime Divisibility of Depth $L$
+
 Let $X \ge 3$ and $L \in \mathbb{N}_{\ge 1}$. A polynomial $P(u) \in \mathcal{O}_K[u]_{\le N}$ satisfies the **Inert Prime Divisibility Condition of Depth $L$** if for every inert prime $p \le X$:
-$$P\left(u + p \cdot \mathcal{O}_{K, p}\right) \equiv 0 \pmod{p^L}$$
+
+$$
+P\left(u + p \cdot \mathcal{O}_{K, p}\right) \equiv 0 \pmod{p^L}
+$$
+
 * **Significance:** Because $p$ is inert, its residue field is $\mathbb{F}_{p^2}$. This acts as an arithmetic rigid barrier that prevents split-prime degenerations.
 
-### Definition 3: The Glued Lattice Sieve ($\Lambda_{\text{glue}}$)
+### Definition 3: The Glued Lattice Sieve ($\Lambda_{\mathrm{glue}}$)
+
 In the space of polynomials of degree $N \approx X$, define the lattice:
-$$\Lambda_{\text{glue}}(X, L) := \left\{ v \in \mathcal{O}_K^{N+1} : P_v \text{ satisfies Inert Divisibility of Depth } L \right\}$$
+
+$$
+\Lambda_{\mathrm{glue}}(X, L) := \left\{ v \in \mathcal{O}_K^{N+1} : P_v \text{ satisfies Inert Divisibility of Depth } L \right\}
+$$
+
 Its covolume satisfies the exact product formula:
-$$\operatorname{covol}\left(\Lambda_{\text{glue}}(X, L)\right) = \operatorname{covol}(\Lambda_0) \cdot \prod_{\substack{p \le X \\ p \in \mathcal{P}_{\text{inert}}}} p^{L(L+1)}$$
+
+$$
+\mathrm{covol}\left(\Lambda_{\mathrm{glue}}(X, L)\right) = \mathrm{covol}(\Lambda_0) \cdot \prod_{\substack{p \le X \\ p \in \mathcal{P}_{\mathrm{inert}}}} p^{L(L+1)}
+$$
 
 ---
 
@@ -80,22 +108,34 @@ Result: |#C - (q+1)| ≤ 2g√q           STUCK FOR 50+ YEARS                   
 
 > **Master Lemma (Automorphic Multiplicity).**  
 > Let $\mathcal{W}_1$ denote the fundamental ladder operator of the Weil representation for $U(1, 1)_K$.  
-> The depth-$L$ operator $\mathbb{T}^{(L)} := (\Theta_i \circ \mathcal{W}_1)^L$ maps each non-zero vector $v \in \Lambda_{\text{glue}}(X, L)$ to an automorphic theta lift $\Phi_v(s)$ satisfying:
-> 1. **Order-$L$ Vanishing:** $\left. \frac{d^k}{ds^k} \Phi_v(s) \right|_{s = \rho} = 0$ for all $0 \le k < L$.
-> 2. **Integrality Preservation:** The divided section $\frac{\Phi_v(s)}{(s - \rho)^L}$ has integral Fourier coefficients. Compact adelic integration over $\operatorname{PGL}_2(\mathbb{Z}_p)$ absorbs all factorial denominators into the unit Haar measure ($\operatorname{vol}(K_p) = 1$).
+> The depth-$L$ operator $\mathbb{T}^{(L)} := (\Theta_i \circ \mathcal{W}_1)^L$ maps each non-zero vector $v \in \Lambda_{\mathrm{glue}}(X, L)$ to an automorphic theta lift $\Phi_v(s)$ satisfying:
+> 1. **Order-$L$ Vanishing:** 
+> 
+> $$
+> \left. \frac{d^k}{ds^k} \Phi_v(s) \right|_{s = \rho} = 0 \quad \text{for all } 0 \le k < L
+> $$
+> 
+> 2. **Integrality Preservation:** The divided section $\frac{\Phi_v(s)}{(s - \rho)^L}$ has integral Fourier coefficients. Compact adelic integration over $\mathrm{PGL}_2(\mathbb{Z}_p)$ absorbs all factorial denominators into the unit Haar measure ($\mathrm{vol}(K_p) = 1$).
 
 ---
 
 ## 🎯 The Master Theorem: The Main Inequality $(M)$
 
-By balancing the automorphic conductor $\operatorname{cond}(\pi_L) \approx L^2$ against the prime sum length $X$, Claude’s parameter choice sets:
-$$L = \lfloor \sqrt{X} \rfloor$$
+By balancing the automorphic conductor $\mathrm{cond}(\pi_L) \approx L^2$ against the prime sum length $X$, Claude’s parameter choice sets:
 
-Applying Minkowski's lattice theorem to $\Lambda_{\text{glue}}$ and evaluating Petersson norms via the Gan–Qiu–Takeda (GQT) regularized Siegel–Weil formula yields:
+$$
+L = \lfloor \sqrt{X} \rfloor
+$$
+
+Applying Minkowski's lattice theorem to $\Lambda_{\mathrm{glue}}$ and evaluating Petersson norms via the Gan–Qiu–Takeda (GQT) regularized Siegel–Weil formula yields:
 
 > **Master Theorem (Main Inequality $M$).**  
 > For any smooth non-negative test function $w$ supported on $[1/2, 2]$ with $\int_0^\infty w(u) du = 1$, the smoothed prime sum $G_w(x) = \sum_n \Lambda(n) w(n/x)$ satisfies on every interval $x \in [Y, Y^{3/2}]$:
-> $$(M): \quad \left| G_w(x) - x \right| \le C_\varepsilon \, x^{1/2 + \varepsilon}$$
+> 
+> $$
+> (M): \quad \left| G_w(x) - x \right| \le C_\varepsilon \, x^{1/2 + \varepsilon}
+> $$
+> 
 > for all $\varepsilon > 0$, where $C_\varepsilon > 0$ is a constant independent of $Y$.
 
 ---
@@ -103,17 +143,38 @@ Applying Minkowski's lattice theorem to $\Lambda_{\text{glue}}$ and evaluating P
 ## 📉 The 5-Line Human Contradiction Proof
 
 1. **Explicit Formula**: Smooth Mellin inversion expresses the prime error as a sum over non-trivial zeros:
-   $$G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^\rho + \mathcal{O}\left(x^{-1/2}\right)$$
-2. **Hypothetical Off-Line Zero**: Suppose a zero exists with $\rho_0 = \frac{1}{2} + \delta + i\gamma_0$ ($\delta > 0$). Its conjugate pair produces an oscillating term $- 2 r_0 x^{1/2 + \delta} \cos(\gamma_0 \log x + \theta_0)$.
-3. **Phase Sweep on $[Y, Y^{3/2}]$**: Across $x \in [Y, Y^{3/2}]$, $u = \log x$ spans width $\Delta u = \frac{1}{2}\log Y$. The phase sweeps $\Delta \Phi = \frac{1}{2} |\gamma_0| \log Y > 2\pi$ (for large $Y$). By the Intermediate Value Theorem, there exists $x^* \in [Y, Y^{3/2}]$ where the cosine equals $-1$:
-   $$\left| G_w(x^*) - x^* \right| \ge c_0 (x^*)^{1/2 + \delta} \quad (c_0 > 0)$$
-4. **Confrontation with Main Inequality**: But $(M)$ holds for **all** $x \in [Y, Y^{3/2}]$:
-   $$c_0 (x^*)^{1/2 + \delta} \le \left| G_w(x^*) - x^* \right| \le C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}$$
-5. **Asymptotic Collapse as $Y \to \infty$**: Because $x^* \ge Y$, choosing $\varepsilon = \delta / 2 > 0$ gives:
-   $$Y^{\delta / 2} \le \frac{C_{\delta/2}}{c_0}$$
-   As $Y \to \infty$, the left-hand side grows to $\infty$ while the right-hand side is constant. **Contradiction.**
 
-Therefore, no zero can exist with $\operatorname{Re}(s) > 1/2$. By functional equation symmetry $s \leftrightarrow 1-s$, all non-trivial zeros satisfy $\operatorname{Re}(s) = 1/2$. $\blacksquare$
+$$
+G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^\rho + \mathcal{O}\left(x^{-1/2}\right)
+$$
+
+2. **Hypothetical Off-Line Zero**: Suppose a zero exists with $\rho_0 = \frac{1}{2} + \delta + i\gamma_0$ ($\delta > 0$). Its conjugate pair produces an oscillating term:
+
+$$
+- 2 r_0 x^{1/2 + \delta} \cos(\gamma_0 \log x + \theta_0)
+$$
+
+3. **Phase Sweep on $[Y, Y^{3/2}]$**: Across $x \in [Y, Y^{3/2}]$, $u = \log x$ spans width $\Delta u = \frac{1}{2}\log Y$. The phase sweeps $\Delta \Phi = \frac{1}{2} |\gamma_0| \log Y > 2\pi$ (for large $Y$). By the Intermediate Value Theorem, there exists $x^* \in [Y, Y^{3/2}]$ where the cosine equals $-1$:
+
+$$
+\left| G_w(x^*) - x^* \right| \ge c_0 (x^*)^{1/2 + \delta} \quad (c_0 > 0)
+$$
+
+4. **Confrontation with Main Inequality**: But $(M)$ holds for **all** $x \in [Y, Y^{3/2}]$:
+
+$$
+c_0 (x^*)^{1/2 + \delta} \le \left| G_w(x^*) - x^* \right| \le C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}
+$$
+
+5. **Asymptotic Collapse as $Y \to \infty$**: Because $x^* \ge Y$, choosing $\varepsilon = \delta / 2 > 0$ gives:
+
+$$
+Y^{\delta / 2} \le \frac{C_{\delta/2}}{c_0}
+$$
+
+As $Y \to \infty$, the left-hand side grows to $\infty$ while the right-hand side is constant. **Contradiction.**
+
+Therefore, no zero can exist with $\mathrm{Re}(s) > 1/2$. By functional equation symmetry $s \leftrightarrow 1-s$, all non-trivial zeros satisfy $\mathrm{Re}(s) = 1/2$. $\blacksquare$
 
 ---
 
@@ -170,7 +231,7 @@ end RiemannHypothesisTheorem
 ## 🎓 3-Lecture Graduate Seminar Curriculum
 
 * **Lecture 1: The Stepanov Barrier & The Theta Ladder**  
-  Why $\operatorname{Der}(\mathbb{Z}, \mathbb{Z}) = 0$ stalled number theory for 50 years, and how iterated theta lifts $\pi_0 \to \pi_1 \dots \to \pi_L$ provide an automorphic substitute for derivative vanishing.
+  Why $\mathrm{Der}(\mathbb{Z}, \mathbb{Z}) = 0$ stalled number theory for 50 years, and how iterated theta lifts $\pi_0 \to \pi_1 \dots \to \pi_L$ provide an automorphic substitute for derivative vanishing.
 * **Lecture 2: The GQT Siegel–Weil Formula & Glued Lattices**  
   How compact unitary groups reduce automorphic norms to finite lattice sums, how choosing $L \approx \sqrt{X}$ balances degrees of freedom, and how inert primes eliminate trace noise to prove $(M)$.
 * **Lecture 3: From $(M)$ to RH (The Analytic Contradiction)**  
