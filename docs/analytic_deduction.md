@@ -17,20 +17,20 @@ is an entire function of $s \in \mathbb{C}$ that decays super-polynomially in an
 $$\forall A > 0, \quad |\widetilde{w}(\sigma + it)| \le C_A(\sigma) (1 + |t|)^{-A}$$
 
 We define the smoothed prime-power sum:
-$$G_w(x) := \sum_{n=1}^\infty \Lambda(n) w\left(\frac{n}{x}\right)$$
+$$G_w(x) := \sum_{n=1}^\infty \Lambda(n) w(\frac{n}{x})$$
 where $\Lambda(n)$ is the classical von Mangoldt function.
 
 The **Main Inequality $(M)$** established by Alpöge–Claude asserts that for any $\varepsilon > 0$, there exists a constant $C_\varepsilon > 0$ and $Y_0(\varepsilon) \ge 2$ such that for all $Y \ge Y_0$ and all $x \in [Y, Y^{3/2}]$:
-$$(M): \quad \left| G_w(x) - x \right| \le C_\varepsilon x^{1/2 + \varepsilon}$$
+$$(M): \quad | G_w(x) - x | \le C_\varepsilon x^{1/2 + \varepsilon}$$
 
 ---
 
 ### 1.2 Smoothed Explicit Formula via Contour Shift
 By Mellin inversion for smooth compactly supported functions, for any $c > 1$:
-$$w\left(\frac{n}{x}\right) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \widetilde{w}(s) \left(\frac{n}{x}\right)^{-s} ds$$
+$$w(\frac{n}{x}) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \widetilde{w}(s) (\frac{n}{x})^{-s} ds$$
 
 Substituting this into $G_w(x)$ and interchanging summation and integration (justified by absolute convergence for $c > 1$):
-$$G_w(x) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \left( \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} \right) \widetilde{w}(s) x^s \, ds = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \left( -\frac{\zeta'}{\zeta}(s) \right) \widetilde{w}(s) x^s \, ds$$
+$$G_w(x) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} ) \widetilde{w}(s) x^s \, ds = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( -\frac{\zeta'}{\zeta}(s) ) \widetilde{w}(s) x^s \, ds$$
 
 We shift the contour of integration from $\mathrm{Re}(s) = c > 1$ to $\mathrm{Re}(s) = -1/2$. By Cauchy's Residue Theorem, the integral picks up contributions from the poles of $-\frac{\zeta'}{\zeta}(s) \widetilde{w}(s) x^s$:
 1. **Pole at $s = 1$**: $-\frac{\zeta'}{\zeta}(s)$ has a simple pole with residue $+1$.  
@@ -54,23 +54,23 @@ $$\rho_0 = \frac{1}{2} + \delta + i \gamma_0, \quad \text{with } \delta > 0, \qu
 
 By the Schwarz reflection principle $\zeta(\overline{s}) = \overline{\zeta(s)}$, $\overline{\rho_0} = 1/2 + \delta - i\gamma_0$ is also a zero. Without loss of generality, choose $\rho_0$ to maximize $\mathrm{Re}(\rho) = 1/2 + \delta$.
 
-The combined contribution of the conjugate pair $\{\rho_0, \overline{\rho_0}\}$ to the explicit sum is:
-$$- \left( \widetilde{w}(\rho_0) x^{1/2 + \delta + i\gamma_0} + \overline{\widetilde{w}(\rho_0)} x^{1/2 + \delta - i\gamma_0} \right) = - 2 x^{1/2 + \delta} \mathrm{Re}\left( \widetilde{w}(\rho_0) e^{i \gamma_0 \log x} \right)$$
+The combined contribution of the conjugate pair $\lbrace \rho_0, \overline{\rho_0}\rbrace$ to the explicit sum is:
+$$- ( \widetilde{w}(\rho_0) x^{1/2 + \delta + i\gamma_0} + \overline{\widetilde{w}(\rho_0)} x^{1/2 + \delta - i\gamma_0} ) = - 2 x^{1/2 + \delta} \mathrm{Re}( \widetilde{w}(\rho_0) e^{i \gamma_0 \log x} )$$
 
 Write $\widetilde{w}(\rho_0) = r_0 e^{i \theta_0}$ in polar form, where $r_0 = |\widetilde{w}(\rho_0)| > 0$. Then this dominant oscillatory term is:
-$$T_{\rho_0}(x) = - 2 r_0 x^{1/2 + \delta} \cos\left( \gamma_0 \log x + \theta_0 \right)$$
+$$T_{\rho_0}(x) = - 2 r_0 x^{1/2 + \delta} \cos( \gamma_0 \log x + \theta_0 )$$
 
 Now consider the sampling interval $I_Y = [Y, Y^{3/2}]$. Let $u = \log x$. As $x$ ranges from $Y$ to $Y^{3/2}$, the logarithmic variable $u$ traverses:
-$$u \in \left[ \log Y, \, \frac{3}{2}\log Y \right]$$
+$$u \in [ \log Y, \, \frac{3}{2}\log Y ]$$
 The width of this logarithmic interval is:
 $$\Delta u = \frac{1}{2} \log Y$$
 
 The total phase variation $\Delta \Phi$ of the cosine over this interval is:
 $$\Delta \Phi = \gamma_0 \Delta u = \frac{1}{2} |\gamma_0| \log Y$$
-For any $Y > Y_1 := \exp\left( \frac{4\pi}{|\gamma_0|} \right)$, we have:
+For any $Y > Y_1 := \exp( \frac{4\pi}{|\gamma_0|} )$, we have:
 $$\Delta \Phi > 2\pi$$
 Because the phase rotates by more than a full circle ($> 2\pi$), the intermediate value theorem guarantees that the cosine achieves its extremal value $-1$ at some point $x^* \in [Y, Y^{3/2}]$, where:
-$$\cos\left(\gamma_0 \log x^* + \theta_0\right) = -1 \implies T_{\rho_0}(x^*) = + 2 r_0 (x^*)^{1/2 + \delta}$$
+$$\cos(\gamma_0 \log x^* + \theta_0) = -1 \implies T_{\rho_0}(x^*) = + 2 r_0 (x^*)^{1/2 + \delta}$$
 
 Even accounting for any remaining zeros with $\mathrm{Re}(\rho) \le 1/2 + \delta$, their super-polynomially decaying weights $\widetilde{w}(\rho)$ ensure that destructive interference cannot cancel the leading zero over the entire logarithmic window. By standard Turán power sum theory (or Landau's oscillation lemma), for sufficiently large $Y$:
 $$\sup_{x \in [Y, Y^{3/2}]} |G_w(x) - x| \ge c_0 (x^*)^{1/2 + \delta}$$
@@ -87,7 +87,7 @@ We now confront this oscillation against the Main Inequality $(M)$ bound:
 4. **Interval Geodesic Bound**: Since $x^* \ge Y$, we have $Y^{\delta - \varepsilon} \le (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}$.
 5. **Asymptotic Collapse as $Y \to \infty$**: Fix $\varepsilon = \frac{\delta}{2} > 0$; taking $Y \to \infty$ yields $\lim_{Y \to \infty} Y^{\delta / 2} = \infty \le \frac{C_{\delta/2}}{c_0} < \infty$, an immediate contradiction! $\blacksquare$
 
-**Conclusion:** No zero can exist with $\mathrm{Re}(\rho) > 1/2$. Combined with the Riemann functional equation $\zeta(s) = 2^s \pi^{s-1} \sin\left(\frac{\pi s}{2}\right) \Gamma(1-s) \zeta(1-s)$, every non-trivial zero must satisfy:
+**Conclusion:** No zero can exist with $\mathrm{Re}(\rho) > 1/2$. Combined with the Riemann functional equation $\zeta(s) = 2^s \pi^{s-1} \sin(\frac{\pi s}{2}) \Gamma(1-s) \zeta(1-s)$, every non-trivial zero must satisfy:
 $$\mathrm{Re}(s) = \frac{1}{2}$$
 
 ---

@@ -66,13 +66,13 @@ flowchart TD
 
 ### 2.1 The Prime Oscillation Equivalence
 Von Koch (1901) established that the Riemann Hypothesis is mathematically equivalent to the optimal square-root bound on Chebyshev's function:
-$$\psi(X) = \sum_{n \le X} \Lambda(n) = X + \mathcal{O}\left(X^{1/2} \log^2 X\right)$$
+$$\psi(X) = \sum_{n \le X} \Lambda(n) = X + \mathcal{O}(X^{1/2} \log^2 X)$$
 
 Through the Riemann–von Mangoldt explicit formula:
 $$\psi_0(X) = X - \sum_{\rho} \frac{X^\rho}{\rho} - \log(2\pi) - \frac{1}{2}\log(1 - X^{-2})$$
 
 If a single hypothetical zero $\rho_0 = \beta_0 + i\gamma_0$ existed off the critical line ($\beta_0 = 1/2 + \delta$ with $\delta > 0$), it would introduce a macroscopic oscillation:
-$$- 2 \frac{X^{\beta_0}}{|\rho_0|} \cos\left(\gamma_0 \log X - \arg(\rho_0)\right)$$
+$$- 2 \frac{X^{\beta_0}}{|\rho_0|} \cos(\gamma_0 \log X - \arg(\rho_0))$$
 
 As $X$ scales, this oscillation fluctuates between $+ \frac{2}{|\rho_0|} X^{1/2 + \delta}$ and $- \frac{2}{|\rho_0|} X^{1/2 + \delta}$, fatally rupturing the $\mathcal{O}(X^{1/2})$ corridor.
 
@@ -97,14 +97,14 @@ $$\text{Error} \ll \frac{X}{L} \approx \frac{X}{\sqrt{X}} = \sqrt{X}$$
 
 ### 2.4 Gan–Qiu–Takeda (GQT) Norm Formulas
 The $L^2$-Petersson norm of the theta lift is determined by the Gan–Qiu–Takeda theorem:
-$$\|\theta(\phi)\|^2 = \tau(U(V)) \cdot \left[ \prod_{j=1}^{\dim W - \dim V} L\left(j, \chi_E^j\right) \right] \cdot L\left(\frac{1}{2}, \pi \times \chi_W\right) \cdot \prod_{v} I_v(\phi_v)$$
+$$\|\theta(\phi)\|^2 = \tau(U(V)) \cdot [ \prod_{j=1}^{\dim W - \dim V} L(j, \chi_E^j) ] \cdot L(\frac{1}{2}, \pi \times \chi_W) \cdot \prod_{v} I_v(\phi_v)$$
 Because $U(V)(\mathbb{R})$ is compact, the automorphic space is discrete, reducing the inner product to a weighted sum over the finite class genus of positive-definite Hermitian $\mathcal{O}_E$-lattices:
 $$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\mathrm{Aut}(\mathcal{L}_i)}$$
 This completely bypasses the Archimedean height explosion.
 
 ### 2.5 The Main Inequality (M) & Contradiction
 For a smooth non-negative test function $w$ supported on $[1, Y^{1/2}]$, the smoothed sum satisfies the **Main Inequality (M)** across all $x \in [Y, Y^{3/2}]$:
-$$(M): \quad \left| \sum_n \Lambda(n) w\left(\frac{n}{x}\right) - x \int_0^\infty w(u) du \right| \le C_\varepsilon x^{1/2 + \varepsilon}$$
+$$(M): \quad | \sum_n \Lambda(n) w(\frac{n}{x}) - x \int_0^\infty w(u) du | \le C_\varepsilon x^{1/2 + \varepsilon}$$
 
 If an off-axis zero $\rho_0 = 1/2 + \delta + i\gamma_0$ existed:
 1. Over $[Y, Y^{3/2}]$, the phase $\gamma_0 \log x$ spans width $\frac{1}{2} \gamma_0 \log Y > 2\pi$ (for large $Y$).
