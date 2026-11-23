@@ -87,10 +87,10 @@ $$
 
 ### Definition 1: The Unitary Theta Operator ($\Theta_i$)
 
-On the Hilbert space $\mathcal{H} = L^2(\mathbb{R}_+^\times, \frac{dx}{x})$, define the integral operator:
+On the Hilbert space $\mathcal{H} = L^2(\mathbb{R}_{+}^{\times}, \frac{dx}{x})$, define the integral operator:
 
 $$
-(\Theta_i f)(x) := \frac{1}{\sqrt{2\pi}} \int_0^\infty \vartheta(x y; i) f(y) \, \frac{dy}{y}
+(\Theta_i f)(x) := \frac{1}{\sqrt{2\pi}} \int_0^{\infty} \vartheta(x y; i) f(y) \, \frac{dy}{y}
 $$
 
 where $\vartheta(u; i) = \sum_{n \in \mathbb{Z}} e^{-\pi n^2 u^2} - \frac{1}{u}$ is Jacobi's completed theta kernel.
@@ -145,9 +145,9 @@ Result: |#C - (q+1)| ≤ 2g√q           STUCK FOR 50+ YEARS                   
 > The depth-$L$ operator $\mathbb{T}^{(L)} := (\Theta_i \circ \mathcal{W}_1)^L$ maps each non-zero vector $v \in \Lambda_{\mathrm{glue}}(X, L)$ to an automorphic theta lift $\Phi_v(s)$ satisfying:
 > 1. **Order-$L$ Vanishing:** 
 > 
-> $$
-> \frac{d^k}{ds^k} \Phi_v(s) |_{s = \rho} = 0 \quad \text{for all } 0 \le k < L
-> $$
+$$
+\frac{d^k}{ds^k} \Phi_v(s) |_{s = \rho} = 0 \quad \text{for all } 0 \le k < L
+$$
 > 
 > 2. **Integrality Preservation:** The divided section $\frac{\Phi_v(s)}{(s - \rho)^L}$ has integral Fourier coefficients. Compact adelic integration over $\mathrm{PGL}_2(\mathbb{Z}_p)$ absorbs all factorial denominators into the unit Haar measure ($\mathrm{vol}(K_p) = 1$).
 
@@ -164,13 +164,13 @@ $$
 Applying Minkowski's lattice theorem to $\Lambda_{\mathrm{glue}}$ and evaluating Petersson norms via the Gan–Qiu–Takeda (GQT) regularized Siegel–Weil formula yields:
 
 > **Master Theorem (Main Inequality $M$).**  
-> For any smooth non-negative test function $w$ supported on $[1/2, 2]$ with $\int_0^\infty w(u) du = 1$, the smoothed prime sum $G_w(x) = \sum_n \Lambda(n) w(n/x)$ satisfies on every interval $x \in [Y, Y^{3/2}]$:
+> For any smooth non-negative test function $w$ supported on $[1/2, 2]$ with $\int_0^{\infty} w(u) du = 1$, the smoothed prime sum $G_w(x) = \sum_n \Lambda(n) w(n/x)$ satisfies on every interval $x \in [Y, Y^{3/2}]$:
 > 
-> $$
-> (M): \quad |G_w(x) - x| \leq C_\varepsilon \, x^{1/2 + \varepsilon}
-> $$
+$$
+(M): \quad |G_w(x) - x| \leq C_{\varepsilon} \, x^{1/2 + \varepsilon}
+$$
 > 
-> for all $\varepsilon > 0$, where $C_\varepsilon > 0$ is a constant independent of $Y$.
+> for all $\varepsilon > 0$, where $C_{\varepsilon} > 0$ is a constant independent of $Y$.
 
 ---
 
@@ -179,7 +179,7 @@ Applying Minkowski's lattice theorem to $\Lambda_{\mathrm{glue}}$ and evaluating
 1. **Explicit Formula**: Smooth Mellin inversion expresses the prime error as a sum over non-trivial zeros:
 
 $$
-G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^\rho + \mathcal{O}(x^{-1/2})
+G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^{\rho} + \mathcal{O}(x^{-1/2})
 $$
 
 2. **Hypothetical Off-Line Zero**: Suppose a zero exists with $\rho_0 = \frac{1}{2} + \delta + i\gamma_0$ ($\delta > 0$). Its conjugate pair produces an oscillating term:
@@ -188,19 +188,19 @@ $$
 - 2 r_0 x^{1/2 + \delta} \cos(\gamma_0 \log x + \theta_0)
 $$
 
-3. **Phase Sweep on $[Y, Y^{3/2}]$**: Across $x \in [Y, Y^{3/2}]$, $u = \log x$ spans width $\Delta u = \frac{1}{2}\log Y$. The phase sweeps $\Delta \Phi = \frac{1}{2} |\gamma_0| \log Y > 2\pi$ (for large $Y$). By the Intermediate Value Theorem, there exists $x^* \in [Y, Y^{3/2}]$ where the cosine equals $-1$:
+3. **Phase Sweep on $[Y, Y^{3/2}]$**: Across $x \in [Y, Y^{3/2}]$, $u = \log x$ spans width $\Delta u = \frac{1}{2}\log Y$. The phase sweeps $\Delta \Phi = \frac{1}{2} |\gamma_0| \log Y > 2\pi$ (for large $Y$). By the Intermediate Value Theorem, there exists $x^{\ast} \in [Y, Y^{3/2}]$ where the cosine equals $-1$:
 
 $$
-|G_w(x^*) - x^*| \geq c_0 (x^*)^{1/2 + \delta} \quad (c_0 > 0)
+|G_w(x^{\ast}) - x^{\ast}| \geq c_0 (x^{\ast})^{1/2 + \delta} \quad (c_0 > 0)
 $$
 
 4. **Confrontation with Main Inequality**: But $(M)$ holds for **all** $x \in [Y, Y^{3/2}]$:
 
 $$
-c_0 (x^*)^{1/2 + \delta} \leq |G_w(x^*) - x^*| \leq C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies (x^*)^{\delta - \varepsilon} \leq \frac{C_\varepsilon}{c_0}
+c_0 (x^{\ast})^{1/2 + \delta} \leq |G_w(x^{\ast}) - x^{\ast}| \leq C_{\varepsilon} (x^{\ast})^{1/2 + \varepsilon} \implies (x^{\ast})^{\delta - \varepsilon} \leq \frac{C_{\varepsilon}}{c_0}
 $$
 
-5. **Asymptotic Collapse as $Y \to \infty$**: Because $x^* \ge Y$, choosing $\varepsilon = \delta / 2 > 0$ gives:
+5. **Asymptotic Collapse as $Y \to \infty$**: Because $x^{\ast} \ge Y$, choosing $\varepsilon = \delta / 2 > 0$ gives:
 
 $$
 Y^{\delta / 2} \leq \frac{C_{\delta/2}}{c_0}

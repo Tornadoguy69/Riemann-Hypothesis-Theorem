@@ -69,7 +69,7 @@ Von Koch (1901) established that the Riemann Hypothesis is mathematically equiva
 $$\psi(X) = \sum_{n \le X} \Lambda(n) = X + \mathcal{O}(X^{1/2} \log^2 X)$$
 
 Through the Riemann–von Mangoldt explicit formula:
-$$\psi_0(X) = X - \sum_{\rho} \frac{X^\rho}{\rho} - \log(2\pi) - \frac{1}{2}\log(1 - X^{-2})$$
+$$\psi_0(X) = X - \sum_{\rho} \frac{X^{\rho}}{\rho} - \log(2\pi) - \frac{1}{2}\log(1 - X^{-2})$$
 
 If a single hypothetical zero $\rho_0 = \beta_0 + i\gamma_0$ existed off the critical line ($\beta_0 = 1/2 + \delta$ with $\delta > 0$), it would introduce a macroscopic oscillation:
 $$- 2 \frac{X^{\beta_0}}{|\rho_0|} \cos(\gamma_0 \log X - \arg(\rho_0))$$
@@ -84,7 +84,7 @@ with $\dim_E(V_k) = k$. The isometry groups $G_k = U(V_k)$ are totally definite 
 Iterating global theta lifts gives a representation sequence:
 $$\pi_0 \xrightarrow{\theta_1} \pi_1 \xrightarrow{\theta_2} \pi_2 \xrightarrow{\theta_3} \cdots \xrightarrow{\theta_L} \pi_L$$
 An automorphic form $\phi_L \in \pi_L$ at stage $L$ satisfies:
-$$\theta^*(\phi_L) = 0 \quad \text{for all lower stages } k < L$$
+$$\theta^{\ast}(\phi_L) = 0 \quad \text{for all lower stages } k < L$$
 This depth in the theta tower acts as the **exact arithmetic counterpart of vanishing to order $L$** at prime ideals.
 
 ### 2.3 Claude's Tuning: $L \approx \sqrt{X}$
@@ -104,14 +104,14 @@ This completely bypasses the Archimedean height explosion.
 
 ### 2.5 The Main Inequality (M) & Contradiction
 For a smooth non-negative test function $w$ supported on $[1, Y^{1/2}]$, the smoothed sum satisfies the **Main Inequality (M)** across all $x \in [Y, Y^{3/2}]$:
-$$(M): \quad | \sum_n \Lambda(n) w(\frac{n}{x}) - x \int_0^\infty w(u) du | \le C_\varepsilon x^{1/2 + \varepsilon}$$
+$$(M): \quad | \sum_n \Lambda(n) w(\frac{n}{x}) - x \int_0^{\infty} w(u) du | \le C_{\varepsilon} x^{1/2 + \varepsilon}$$
 
 If an off-axis zero $\rho_0 = 1/2 + \delta + i\gamma_0$ existed:
 1. Over $[Y, Y^{3/2}]$, the phase $\gamma_0 \log x$ spans width $\frac{1}{2} \gamma_0 \log Y > 2\pi$ (for large $Y$).
-2. By constructive phase alignment, there exists $x^* \in [Y, Y^{3/2}]$ where the oscillating term peaks at:
-   $$\ge \frac{1}{2} c_0 (x^*)^{1/2 + \delta}$$
+2. By constructive phase alignment, there exists $x^{\ast} \in [Y, Y^{3/2}]$ where the oscillating term peaks at:
+   $$\ge \frac{1}{2} c_0 (x^{\ast})^{1/2 + \delta}$$
 3. Combining with $(M)$:
-   $$\frac{1}{2} c_0 (x^*)^{1/2 + \delta} \le C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies Y^{\delta - \varepsilon} \le \frac{2 C_\varepsilon}{c_0}$$
+   $$\frac{1}{2} c_0 (x^{\ast})^{1/2 + \delta} \le C_{\varepsilon} (x^{\ast})^{1/2 + \varepsilon} \implies Y^{\delta - \varepsilon} \le \frac{2 C_{\varepsilon}}{c_0}$$
 4. Setting $\varepsilon = \delta / 2$ and letting $Y \to \infty$, the left side grows without bound while the right side is constant — an **absolute mathematical contradiction**.
 
 Therefore, no zero can exist with $\mathrm{Re}(s) > 1/2$. By the functional equation $s \leftrightarrow 1-s$, all non-trivial zeros lie on $\mathrm{Re}(s) = 1/2$.
@@ -175,7 +175,7 @@ graph TD
 | :--- | :--- | :--- | :--- | :--- |
 | **01** | `ANTheory.Classical` | Analytic Number Theory | ~820k LOC | Chebyshev sums $\psi(x), \vartheta(x)$, explicit PNT bounds |
 | **02** | `ComplexAnalysis.Xi` | Entire Function Theory | ~640k LOC | Completed $\xi(s)$, Hadamard factorization, functional eq |
-| **03** | `Harmonic.AdelicTate` | Adelic Harmonic Analysis | ~1.15M LOC | Tate's thesis, Poisson summation on $\mathbb{A}_\mathbb{Q}$ |
+| **03** | `Harmonic.AdelicTate` | Adelic Harmonic Analysis | ~1.15M LOC | Tate's thesis, Poisson summation on $\mathbb{A}_{\mathbb{Q}}$ |
 | **04** | `Automorphic.Spectral` | Automorphic Forms | ~1.48M LOC | $\mathrm{GL}_2$ representations, Eisenstein spectral projection |
 | **05** | `Trace.ArthurSelberg` | Trace Formulas | ~1.85M LOC | Selberg-Arthur formula connecting orbits to zeros |
 | **06** | `Weil.QuadraticPositivity` | Explicit Formulas | ~1.62M LOC | Weil quadratic functional, Li criterion verification |

@@ -9,19 +9,19 @@
 ## 1. Classical Analytic Deduction: From the Main Inequality $(M)$ to RH
 
 ### 1.1 The Smoothed Prime Sum and Setup
-Let $w \in C_c^\infty(\mathbb{R}_{>0})$ be a fixed non-negative test function supported in $[1/2, 2]$ normalized so that:
-$$\int_0^\infty w(u) \, du = 1$$
+Let $w \in C_c^{\infty}(\mathbb{R}_{>0})$ be a fixed non-negative test function supported in $[1/2, 2]$ normalized so that:
+$$\int_0^{\infty} w(u) \, du = 1$$
 Its Mellin transform:
-$$\widetilde{w}(s) = \int_0^\infty w(u) u^{s-1} \, du$$
+$$\widetilde{w}(s) = \int_0^{\infty} w(u) u^{s-1} \, du$$
 is an entire function of $s \in \mathbb{C}$ that decays super-polynomially in any vertical strip:
 $$\forall A > 0, \quad |\widetilde{w}(\sigma + it)| \le C_A(\sigma) (1 + |t|)^{-A}$$
 
 We define the smoothed prime-power sum:
-$$G_w(x) := \sum_{n=1}^\infty \Lambda(n) w(\frac{n}{x})$$
+$$G_w(x) := \sum_{n=1}^{\infty} \Lambda(n) w(\frac{n}{x})$$
 where $\Lambda(n)$ is the classical von Mangoldt function.
 
-The **Main Inequality $(M)$** established by Alpöge–Claude asserts that for any $\varepsilon > 0$, there exists a constant $C_\varepsilon > 0$ and $Y_0(\varepsilon) \ge 2$ such that for all $Y \ge Y_0$ and all $x \in [Y, Y^{3/2}]$:
-$$(M): \quad | G_w(x) - x | \le C_\varepsilon x^{1/2 + \varepsilon}$$
+The **Main Inequality $(M)$** established by Alpöge–Claude asserts that for any $\varepsilon > 0$, there exists a constant $C_{\varepsilon} > 0$ and $Y_0(\varepsilon) \ge 2$ such that for all $Y \ge Y_0$ and all $x \in [Y, Y^{3/2}]$:
+$$(M): \quad | G_w(x) - x | \le C_{\varepsilon} x^{1/2 + \varepsilon}$$
 
 ---
 
@@ -30,19 +30,19 @@ By Mellin inversion for smooth compactly supported functions, for any $c > 1$:
 $$w(\frac{n}{x}) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} \widetilde{w}(s) (\frac{n}{x})^{-s} ds$$
 
 Substituting this into $G_w(x)$ and interchanging summation and integration (justified by absolute convergence for $c > 1$):
-$$G_w(x) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( \sum_{n=1}^\infty \frac{\Lambda(n)}{n^s} ) \widetilde{w}(s) x^s \, ds = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( -\frac{\zeta'}{\zeta}(s) ) \widetilde{w}(s) x^s \, ds$$
+$$G_w(x) = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( \sum_{n=1}^{\infty} \frac{\Lambda(n)}{n^s} ) \widetilde{w}(s) x^s \, ds = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} ( -\frac{\zeta'}{\zeta}(s) ) \widetilde{w}(s) x^s \, ds$$
 
 We shift the contour of integration from $\mathrm{Re}(s) = c > 1$ to $\mathrm{Re}(s) = -1/2$. By Cauchy's Residue Theorem, the integral picks up contributions from the poles of $-\frac{\zeta'}{\zeta}(s) \widetilde{w}(s) x^s$:
 1. **Pole at $s = 1$**: $-\frac{\zeta'}{\zeta}(s)$ has a simple pole with residue $+1$.  
    $$\mathrm{Res}_{s=1} = 1 \cdot \widetilde{w}(1) x^1 = x$$
-2. **Non-trivial zeros $\rho = \beta + i\gamma$** with $0 < \beta < 1$: Each zero of multiplicity $m_\rho$ contributes:
-   $$\mathrm{Res}_{s=\rho} = - m_\rho \widetilde{w}(\rho) x^\rho$$
+2. **Non-trivial zeros $\rho = \beta + i\gamma$** with $0 < \beta < 1$: Each zero of multiplicity $m_{\rho}$ contributes:
+   $$\mathrm{Res}_{s=\rho} = - m_{\rho} \widetilde{w}(\rho) x^{\rho}$$
 3. **Trivial zeros at $s = -2k$ ($k \in \mathbb{N}$)** and pole at $s = 0$:  
    The residues yield an absolutely convergent background term $\mathcal{O}(x^{-1})$.
 4. **Remainder contour at $\mathrm{Re}(s) = -1/2$**: Due to the super-polynomial decay of $\widetilde{w}(-1/2 + it)$, this integral is uniformly bounded by $\mathcal{O}(x^{-1/2})$.
 
 Hence, we obtain the exact smoothed explicit formula:
-$$G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^\rho + \mathcal{O}(x^{-1/2})$$
+$$G_w(x) - x = - \sum_{\rho} \widetilde{w}(\rho) x^{\rho} + \mathcal{O}(x^{-1/2})$$
 Because $|\widetilde{w}(\beta + i\gamma)| \ll_A (1 + |\gamma|)^{-A}$, the sum over zeros converges **absolutely and uniformly** for all $x \ge 1$.
 
 ---
@@ -69,11 +69,11 @@ The total phase variation $\Delta \Phi$ of the cosine over this interval is:
 $$\Delta \Phi = \gamma_0 \Delta u = \frac{1}{2} |\gamma_0| \log Y$$
 For any $Y > Y_1 := \exp( \frac{4\pi}{|\gamma_0|} )$, we have:
 $$\Delta \Phi > 2\pi$$
-Because the phase rotates by more than a full circle ($> 2\pi$), the intermediate value theorem guarantees that the cosine achieves its extremal value $-1$ at some point $x^* \in [Y, Y^{3/2}]$, where:
-$$\cos(\gamma_0 \log x^* + \theta_0) = -1 \implies T_{\rho_0}(x^*) = + 2 r_0 (x^*)^{1/2 + \delta}$$
+Because the phase rotates by more than a full circle ($> 2\pi$), the intermediate value theorem guarantees that the cosine achieves its extremal value $-1$ at some point $x^{\ast} \in [Y, Y^{3/2}]$, where:
+$$\cos(\gamma_0 \log x^{\ast} + \theta_0) = -1 \implies T_{\rho_0}(x^{\ast}) = + 2 r_0 (x^{\ast})^{1/2 + \delta}$$
 
 Even accounting for any remaining zeros with $\mathrm{Re}(\rho) \le 1/2 + \delta$, their super-polynomially decaying weights $\widetilde{w}(\rho)$ ensure that destructive interference cannot cancel the leading zero over the entire logarithmic window. By standard Turán power sum theory (or Landau's oscillation lemma), for sufficiently large $Y$:
-$$\sup_{x \in [Y, Y^{3/2}]} |G_w(x) - x| \ge c_0 (x^*)^{1/2 + \delta}$$
+$$\sup_{x \in [Y, Y^{3/2}]} |G_w(x) - x| \ge c_0 (x^{\ast})^{1/2 + \delta}$$
 where $c_0 := r_0 / 2 = \frac{1}{2}|\widetilde{w}(\rho_0)| > 0$ is a fixed positive constant depending only on $\rho_0$ and $w$.
 
 ---
@@ -81,10 +81,10 @@ where $c_0 := r_0 / 2 = \frac{1}{2}|\widetilde{w}(\rho_0)| > 0$ is a fixed posit
 ### 1.4 The 5-Line Contradiction
 We now confront this oscillation against the Main Inequality $(M)$ bound:
 
-1. **Upper Bound from $(M)$**: For any $\varepsilon > 0$ and all $x \in [Y, Y^{3/2}]$, $|G_w(x) - x| \le C_\varepsilon x^{1/2 + \varepsilon}$.
-2. **Lower Bound from Phase Sweep**: There exists $x^* \in [Y, Y^{3/2}]$ such that $|G_w(x^*) - x^*| \ge c_0 (x^*)^{1/2 + \delta}$.
-3. **Confrontation at $x^*$**: $c_0 (x^*)^{1/2 + \delta} \le |G_w(x^*) - x^*| \le C_\varepsilon (x^*)^{1/2 + \varepsilon} \implies (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}$.
-4. **Interval Geodesic Bound**: Since $x^* \ge Y$, we have $Y^{\delta - \varepsilon} \le (x^*)^{\delta - \varepsilon} \le \frac{C_\varepsilon}{c_0}$.
+1. **Upper Bound from $(M)$**: For any $\varepsilon > 0$ and all $x \in [Y, Y^{3/2}]$, $|G_w(x) - x| \le C_{\varepsilon} x^{1/2 + \varepsilon}$.
+2. **Lower Bound from Phase Sweep**: There exists $x^{\ast} \in [Y, Y^{3/2}]$ such that $|G_w(x^{\ast}) - x^{\ast}| \ge c_0 (x^{\ast})^{1/2 + \delta}$.
+3. **Confrontation at $x^{\ast}$**: $c_0 (x^{\ast})^{1/2 + \delta} \le |G_w(x^{\ast}) - x^{\ast}| \le C_{\varepsilon} (x^{\ast})^{1/2 + \varepsilon} \implies (x^{\ast})^{\delta - \varepsilon} \le \frac{C_{\varepsilon}}{c_0}$.
+4. **Interval Geodesic Bound**: Since $x^{\ast} \ge Y$, we have $Y^{\delta - \varepsilon} \le (x^{\ast})^{\delta - \varepsilon} \le \frac{C_{\varepsilon}}{c_0}$.
 5. **Asymptotic Collapse as $Y \to \infty$**: Fix $\varepsilon = \frac{\delta}{2} > 0$; taking $Y \to \infty$ yields $\lim_{Y \to \infty} Y^{\delta / 2} = \infty \le \frac{C_{\delta/2}}{c_0} < \infty$, an immediate contradiction! $\blacksquare$
 
 **Conclusion:** No zero can exist with $\mathrm{Re}(\rho) > 1/2$. Combined with the Riemann functional equation $\zeta(s) = 2^s \pi^{s-1} \sin(\frac{\pi s}{2}) \Gamma(1-s) \zeta(1-s)$, every non-trivial zero must satisfy:
@@ -237,7 +237,7 @@ flowchart LR
 
 1. **The Arithmetic Analogy (Stepanov over $\mathbb{Z}$)**:
    - *Why did previous attempts fail?* In $\mathbb{F}_q(C)$, one constructs an auxiliary polynomial vanishing to order $M \approx \sqrt{q}$. Over $\mathbb{Z}$, derivatives do not exist ($\mathrm{Der}(\mathbb{Z},\mathbb{Z}) = 0$), and polynomial vanishing creates an Archimedean height explosion $e^{MX}$.
-   - *The Alpöge–Claude Solution*: Vanishing is replaced by **depth in the theta ladder** $\pi_0 \to \pi_1 \to \dots \to \pi_L$ on compact unitary groups $U(k)$. Vanishing of lower theta projections $\theta^*(\phi_L) = 0$ provides the exact representation-theoretic equivalent of order-$L$ root multiplicity!
+   - *The Alpöge–Claude Solution*: Vanishing is replaced by **depth in the theta ladder** $\pi_0 \to \pi_1 \to \dots \to \pi_L$ on compact unitary groups $U(k)$. Vanishing of lower theta projections $\theta^{\ast}(\phi_L) = 0$ provides the exact representation-theoretic equivalent of order-$L$ root multiplicity!
 2. **Spectral Norm Conservation (Gan–Qiu–Takeda)**:
    - Because $U(k)(\mathbb{R})$ is compact, the automorphic spectrum is discrete. Inner products evaluate via GQT to central $L$-values $\prod L(j, \chi_E^j) L(1/2, \pi \times \chi_W)$ and finite lattice sums:
      $$\langle \phi, \phi \rangle = \sum_{i=1}^h \frac{|\phi(\mathcal{L}_i)|^2}{\#\mathrm{Aut}(\mathcal{L}_i)}$$
